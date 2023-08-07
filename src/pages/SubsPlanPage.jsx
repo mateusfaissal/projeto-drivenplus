@@ -60,11 +60,10 @@ export default function SubsPlanPage() {
         );
 
         subscriptionPromise.then(response => {
+            
             const tempInfosUser = { ...infosUser };
             tempInfosUser.membership = response.data.membership;
 
-            console.log("Temp user info:");
-            console.log(tempInfosUser);
 
             localStorage.setItem("infosUser", JSON.stringify(tempInfosUser));
             setInfosUser(tempInfosUser);

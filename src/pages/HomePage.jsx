@@ -1,5 +1,11 @@
+import  styled  from "styled-components"
+
 export default function HomePage() {
     return (
-        <h1> HomePage </h1>
+        <HR> HomePage </HR>
     )
 }
+
+const HR = styled.h1 `
+background-color: red;
+`

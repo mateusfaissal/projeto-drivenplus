@@ -43,18 +43,18 @@ export default function LoginPage() {
 
     function handleRequest(e) {
         e.preventDefault();
-        
-            axios.post(
-                "https://mock-api.driven.com.br/api/v4/driven-plus/auth/login",
-                {
-                    email: email,
-                    password: password
-                }
-            )
-                .then(handleResponse)
-                .catch(error => {
-                    alert(error.response.data.message);
-                });
+
+        axios.post(
+            "https://mock-api.driven.com.br/api/v4/driven-plus/auth/login",
+            {
+                email: email,
+                password: password
+            }
+        )
+            .then(handleResponse)
+            .catch(error => {
+                alert(error.response.data.message);
+            });
 
     }
 
@@ -70,6 +70,7 @@ export default function LoginPage() {
         };
 
         setInfosUser(userData);
+
         localStorage.setItem("infosUser", JSON.stringify(userData));
 
         if (response.data.membership === null) {
@@ -80,7 +81,7 @@ export default function LoginPage() {
     }
 
     return (
-        <LoginStyled >
+        <SCLogin>
             <img src={logo}></img>
             <input placeholder='Email' required value={email} onChange={(e) => setEmail(e.target.value)}>
             </input>
@@ -92,11 +93,11 @@ export default function LoginPage() {
                 <p>Não tem uma conta? Cadastre-se!</p>
             </Link>
 
-        </LoginStyled>
+        </SCLogin>
     )
 }
 
-const LoginStyled = styled.form`
+const SCLogin = styled.form`
 box-sizing: border-box;
 img{
     height:49px;
